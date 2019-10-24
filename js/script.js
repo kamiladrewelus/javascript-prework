@@ -5,29 +5,46 @@ console.log('Gracz wpisał: ' + playerInput);
 
 let playerMove = 'nieznany ruch';
 
-if(playerInput == '1'){
-  playerMove = 'kamień';
+// if(playerInput == '1'){
+//   playerMove = 'kamień';
+// }
+// else if(playerInput == '2'){
+//   playerMove = 'papier';
+// }
+// else if(playerInput == '3'){
+//   playerMove = 'nożyce';
+// }
+function getMoveName(argMoveId){
+
+  if(argMoveId == 1){
+    return 'kamień';
+  } else if(argMoveId == 2){
+    return 'nożyce';
+  } else if(argMoveId == 3){
+    return 'papier';
+  } else {
+    printMessage('Nie znam ruchu o id ' + argMoveId + '.');
+    return 'nieznany ruch';//komentarz dodaje..
+  }
 }
-else if(playerInput == '2'){
-  playerMove = 'papier';
-}
-else if(playerInput == '3'){
-  playerMove = 'nożyce';
-}
+playerMove = getMoveName(playerInput);
+
 printMessage('Twój ruch to: ' + playerMove);
 //Computer
 let computerInput = Math.floor(Math.random() * 3 + 1);
 console.log('Komputer wylosował: ' + computerInput);
 
-if(computerInput == '1'){
-  computerMove = 'kamień';
-}
-else if(computerInput == '2'){
-  computerMove = 'papier';
-}
-else if(computerInput == '3'){
-  computerMove = 'nożyce';
-}
+// if(computerInput == '1'){
+//   computerMove = 'kamień';
+// }
+// else if(computerInput == '2'){
+//   computerMove = 'papier';
+// }
+// else if(computerInput == '3'){
+//   computerMove = 'nożyce';
+// }
+computerMove = getMoveName(computerInput);
+
 printMessage('Komputera ruch to: ' + computerMove);
 //wynik gry
 if( computerMove == 'kamień' && playerMove == 'papier'){
